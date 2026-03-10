@@ -9,16 +9,16 @@ This C++ code is largely based on earlier C code by [Terry Jones](https://github
 
 ## Compile
 To compile, go into the `src` directory and type
-   make nk
+    make nk
 to compile the `nk_walk` program or
-   make nkc
+    make nkc
 to compile the `nkc_walk` program. The executables will be placed in the parent directory.
 
 ## Run
 To run, go back up to the parent directory and type
-   ./nk_walk -help
+    ./nk_walk -help
 or
-   ./nkc_walk -help
+    ./nkc_walk -help
 to see a list of expected and optional program arguments.
 
 ## Arguments
