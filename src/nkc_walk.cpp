@@ -187,7 +187,7 @@ int GetArguments (int argc, char **argv)
       }
       i++;
     }
-    else if (strcmp (argv[i], "-e") == 0)
+    else if (strcmp (argv[i], "-epi") == 0)
     {
       if (strcmp (argv[++i], "adj") == 0)
       {
@@ -215,7 +215,7 @@ int GetArguments (int argc, char **argv)
       }
       i++;
     }
-    else if (strcmp (argv[i], "-t") == 0)
+    else if (strcmp (argv[i], "-len") == 0)
     {
       if ((sscanf (argv[++i], "%d", &T) != 1) || (T < 1))
       {
@@ -237,23 +237,22 @@ int GetArguments (int argc, char **argv)
     }
     else if (strcmp (argv[i], "-help") == 0)
     {
-      cout << argv[0] << " -n <N> -k <K> -c <C> [-a <A>] [-e <epi>]"
-	   << " [-s <seed>] [-t <T>] [-m <s_mut>] [-help]" << endl
+      cout << "Usage: " << argv[0]
+	   << " -n N -k K -c C [-a A] [-epi {rnd|adj}] [-s S] [-len L] [-m M] [-help]"
+	   << endl << endl
+	   << "  -n N:     The genome length N." << endl
+	   << "  -k K:     The number K of epistatic interactions for each gene (0<=K<N)."
 	   << endl
-	   << "  N:     The genome length." << endl
-	   << "  K:     The number of epistatic interactions (0<=K<N)." << endl
-	   << "  C:     The number of between-species epistatic interactions "
-	   << "(0<=C<=N)." << endl
-	   << "  A:     The alphabet size (default=2)." << endl
-	   << "  epi:   The type of epistatic interactions ('adj' (default) or"
-	   << " 'rnd')." << endl
-	   << "  seed:  The seed value for the landscape (default=-1)." << endl
-	   << "  T:     The number of steps in the random walk (default=10000)."
+	   << "  -c C:     The number C of between-species epistatic interactions "
+	   << "            (0<=C<N)
+	   << "  -a A:     The alphabet size A (default=2)." << endl
+	   << "  -epi E:   The type E of epistatic interactions: adj (default), or rnd."
 	   << endl
-	   << "  s_mut: The number of steps after which the other species is "
-	   << endl
-	   << "         mutated (default=0, no updates)." << endl
-	   << "  help:  Print out this message and exit." << endl;
+	   << "  -s S:     The random seed S (default=-1: use current time)." << endl
+	   << "  -len L:   The length L of the random walk (default=100)." << endl
+	   << "  -m M:     The number of steps after which the other species is"
+	   << "            mutated (default=0)." << endl
+	   << "  -help:    Print this help message and exit." << endl;
       status = -1;
       goto End_of_Routine;
     }

@@ -281,25 +281,23 @@ int GetArguments (int argc, char **argv)
     }
     else if (strcmp (argv[i], "-help") == 0)
     {
-      cout << argv[0] << " -n <N> -k <K> [-a <A>] [-epi <epi>] [-walk <walk>] [-len <len>] [-nr <nr>]"
-	   << " [-print <print>] [-s <seed>] [-help]" << endl
+      cout << "Usage: " << argv[0]
+	   << " -n N -k K [-a A] [-epi {adj|rnd}] [-walk {random|uphill|downhill}]"
+	   << "[-len L] [-nr Nr] [-print {none|fitter|all}] [-s S] [-help]" << endl << endl
+	   << "  -n N:     The genome length N." << endl
+	   << "  -k K:     The number K of epistatic interactions for each gene (0<=K<N)."
 	   << endl
-	   << "  N:     The genome length." << endl
-	   << "  K:     The number of epistatic interactions (0<=K<N)."
+	   << "  -a A:     The alphabet size A (default=2)." << endl
+	   << "  -epi E:   The type E of epistatic interactions: adj (default), or rnd."
 	   << endl
-	   << "  A:     The alphabet size (default=2)." << endl
-	   << "  epi:   The type of epistatic interactions ('adj' (default)"
-	   << " or 'rnd')." << endl
-	   << "  walk:  The type of walk to perform ('random' (default), 'uphill', or 'downhill')"
-	   << endl
-	   << "  len:   The length of the walk (only considered if the walk type is 'random')."
-	   << endl
-	   << "  nr:    The number of walks to perform (default=100)." << endl
-	   << "  print: Print mutant fitness values ('none' (default), 'fitter', or 'all')."
-	   << endl
-	   << "  seed:  The seed value for the landscape (default=-1)."
-	   << endl
-	   << "  help:  Print out this message and exit." << endl;
+	   << "  -walk W:  The type W of walk to perform: random (default), uphill, or "
+	   << "            downhill." << endl
+	   << "  -len L:   The length L of a random walk (default=100)." << endl
+	   << "  -nr Nr:   The number Nr of walks to perform (default=100)." << endl
+	   << "  -print P: Which mutant fitness values P to print: none (default),"
+	   << "            fitter, or all." << endl
+	   << "  -s S:     The random seed S (default=-1: use current time)." << endl
+	   << "  -help:    Print this help message and exit." << endl;
       status = -1;
       goto End_of_Routine;
     }
