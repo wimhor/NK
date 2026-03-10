@@ -282,7 +282,7 @@ int GetArguments (int argc, char **argv)
     else if (strcmp (argv[i], "-help") == 0)
     {
       cout << "Usage: " << argv[0]
-	   << " -n N -k K [-a A] [-epi {adj|rnd}] [-walk {random|uphill|downhill}]"
+	   << " -n N -k K [-a A] [-epi {adj|rnd}] [-walk {random|uphill|downhill}] "
 	   << "[-len L] [-nr Nr] [-print {none|fitter|all}] [-s S] [-help]" << endl << endl
 	   << "  -n N:     The genome length N (N>0)." << endl
 	   << "  -k K:     The number K of epistatic interactions for each gene (0<=K<N)."
@@ -290,11 +290,11 @@ int GetArguments (int argc, char **argv)
 	   << "  -a A:     The alphabet size A (default=2)." << endl
 	   << "  -epi E:   The type E of epistatic interactions: adj (default), or rnd."
 	   << endl
-	   << "  -walk W:  The type W of walk to perform: random (default), uphill, or "
-	   << "            downhill." << endl
+	   << "  -walk W:  The type W of walk to perform: random (default), uphill," << endl
+	   << "            or downhill." << endl
 	   << "  -len L:   The length L of a random walk (default=100)." << endl
 	   << "  -nr Nr:   The number Nr of walks to perform (default=100)." << endl
-	   << "  -print P: Which mutant fitness values P to print: none (default),"
+	   << "  -print P: Which mutant fitness values P to print: none (default)," << endl
 	   << "            fitter, or all." << endl
 	   << "  -s S:     The random seed S (default=-1: use current time)." << endl
 	   << "  -help:    Print this help message and exit." << endl;

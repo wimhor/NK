@@ -240,19 +240,19 @@ int GetArguments (int argc, char **argv)
       cout << "Usage: " << argv[0]
 	   << " -n N -k K -c C [-a A] [-epi {rnd|adj}] [-s S] [-len L] [-m M] [-help]"
 	   << endl << endl
-	   << "  -n N:     The genome length N (N>0)." << endl
-	   << "  -k K:     The number K of epistatic interactions for each gene (0<=K<N)."
+	   << "  -n N:   The genome length N (N>0)." << endl
+	   << "  -k K:   The number K of epistatic interactions for each gene (0<=K<N)."
 	   << endl
-	   << "  -c C:     The number C of between-species epistatic interactions "
-	   << "            (0<=C<N)
-	   << "  -a A:     The alphabet size A (default=2)." << endl
-	   << "  -epi E:   The type E of epistatic interactions: adj (default), or rnd."
+	   << "  -c C:   The number C of between-species epistatic interactions (0<=C<N)."
 	   << endl
-	   << "  -s S:     The random seed S (default=-1: use current time)." << endl
-	   << "  -len L:   The length L of the random walk (default=100)." << endl
-	   << "  -m M:     The number of steps M after which the other species is"
-	   << "            mutated (default=0)." << endl
-	   << "  -help:    Print this help message and exit." << endl;
+	   << "  -a A:   The alphabet size A (default=2)." << endl
+	   << "  -epi E: The type E of epistatic interactions: adj (default), or rnd."
+	   << endl
+	   << "  -s S:   The random seed S (default=-1: use current time)." << endl
+	   << "  -len L: The length L of the random walk (default=100)." << endl
+	   << "  -m M:   The number of steps M after which the other species is" << endl
+	   << "          mutated (default=0)." << endl
+	   << "  -help:  Print this help message and exit." << endl;
       status = -1;
       goto End_of_Routine;
     }
