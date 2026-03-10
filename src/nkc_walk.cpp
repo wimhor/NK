@@ -1,7 +1,7 @@
 /*
 ** nkc_walk.cpp: Main routine for performing random walks on an NKC-landscape.
 **
-** Wim Hordijk   Last modified: 23 August 2010
+** Wim Hordijk   Last modified: 10 March 2026
 */
 
 #include "NKC.h"
@@ -9,24 +9,25 @@
 #include <string.h>
 #include <stdio.h>
 #include <iostream>
+
 using namespace std;
 
 /*
 ** Global vars.
 **
-** N:      The length of the genomes.
-** K:      The number of epistatic interactions.
-** C:      The number of between-species interactions.
-** A:      The alphabet size.
-** epi:    The type of epistatic interactions (adjacent or random). This only
-**         hold for the within-species interactions. Between-species
-**         interactions are always random.
-** seed:   The seed value for the random number generator.
-** T:      The number of steps to perform in the random walk.
-** s_mut:  The number of steps after which the other species is mutated. A
-**         value of 0 indicates no update at all.
-** nkc:    A pointer to an NKC-landscape.
-** rnd:    A pointer to a random number generator.
+** N:     The length of the genomes.
+** K:     The number of epistatic interactions.
+** C:     The number of between-species interactions.
+** A:     The alphabet size.
+** epi:   The type of epistatic interactions (adjacent or random). This only
+**        hold for the within-species interactions. Between-species
+**        interactions are always random.
+** seed:  The seed value for the random number generator.
+** T:     The number of steps to perform in the random walk.
+** s_mut: The number of steps after which the other species is mutated. A
+**        value of 0 indicates no update at all.
+** nkc:   A pointer to an NKC-landscape.
+** rnd:   A pointer to a random number generator.
 */
 
 int            N, K, C, epi, T, s_mut, A, seed;
@@ -308,8 +309,6 @@ int RandomWalk ()
     genome[i] = rnd->Unif (A);
     coev_gen[i] = rnd->Unif (A);
   }
-  //for (loc = 0; loc < N; loc++) cout << genome[loc]; cout << "  ";
-  //for (loc = 0; loc < N; loc++) cout << coev_gen[loc]; cout << "  ";
   cout << nkc->Fitness (genome, coev_gen) << endl;
 
   /*
@@ -343,8 +342,6 @@ int RandomWalk ()
     /*
     ** Calculate its new fitness.
     */
-    //for (loc = 0; loc < N; loc++) cout << genome[loc]; cout << "  ";
-    //for (loc = 0; loc < N; loc++) cout << coev_gen[loc]; cout << "  ";
     cout << nkc->Fitness (genome, coev_gen) << endl;
   }
 

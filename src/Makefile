@@ -1,19 +1,16 @@
 #
-# Makefile: Makefile for the NK-landscape implementation.
+# Makefile: Makefile for the NK-landscape implementations.
 #
-# Wim Hordijk   Last modified: 23 August 2010
+# Wim Hordijk   Last modified: 10 March 2026
 #
 
 CC     = g++
-CFLAGS = -Wno-deprecated -c
 
 nk: nk_walk.cpp Random.cpp NK.cpp Random.h NK.h
-	$(CC) $(CFLAGS) nk_walk.cpp Random.cpp NK.cpp
-	$(CC) -o nk_walk nk_walk.o Random.o NK.o
+	$(CC) -o ../nk_walk nk_walk.cpp Random.cpp NK.cpp
 
 nkc: nkc_walk.cpp Random.cpp NKC.cpp Random.h NKC.h
-	$(CC) $(CFLAGS) nkc_walk.cpp Random.cpp NKC.cpp
-	$(CC) -o nkc_walk nkc_walk.o Random.o NKC.o
+	$(CC) -o ../nkc_walk nkc_walk.cpp Random.cpp NKC.cpp
 
 clean:
 	rm -f *~ *.o

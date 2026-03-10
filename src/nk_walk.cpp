@@ -1,7 +1,7 @@
 /*
 ** nk_walk.cpp: Main routine for performing various types of walks on an NK-landscape.
 **
-** Wim Hordijk   Last modified: 15 December 2020
+** Wim Hordijk   Last modified: 10 March 2026
 */
 
 #include "NK.h"
@@ -23,6 +23,7 @@ static const int RND_WALK=1, UPHILL=2, DOWNHILL=3, NONE=1, FITTER=2, ALL=3;
 **
 ** N:       The length of the genomes.
 ** K:       The number of epistatic interactions.
+** A:       The alphabet size.
 ** epi:     The type of epistatic interactions (adjacent or random).
 ** seed:    The seed value for the random number generator.
 ** walk:    The type of walk to perform (random, uphill, or downhill).
@@ -33,7 +34,7 @@ static const int RND_WALK=1, UPHILL=2, DOWNHILL=3, NONE=1, FITTER=2, ALL=3;
 ** rnd:     A pointer to a random number generator.
 */
 
-int           N, K, epi, seed, walk, len, nrWalks, prnt;
+int           N, K, A, epi, seed, walk, len, nrWalks, prnt;
 Random       *rnd;
 NK_Landscape *nk;
 
@@ -76,7 +77,7 @@ int main (int argc, char **argv)
   /*
   ** Create an NK-landscape.
   */
-  nk = new NK_Landscape (N, K, epi, 2, seed);
+  nk = new NK_Landscape (N, K, epi, A, seed);
   //nk->Test ();
   if (!nk->init_OK)
   {
@@ -142,6 +143,7 @@ int GetArguments (int argc, char **argv)
   */
   N = -1;
   K = -1;
+  A = 2;
   epi = NK_Landscape::ADJ;
   seed = -1;
   walk = RND_WALK;
@@ -171,6 +173,16 @@ int GetArguments (int argc, char **argv)
       {
 	status = -1;
 	cerr << "Invalid value for K: " << argv[i] << endl;
+	goto End_of_Routine;
+      }
+      i++;
+    }
+    else if (strcmp (argv[i], "-a") == 0)
+    {
+      if ((sscanf (argv[++i], "%d", &A) != 1) || (A < 2))
+      {
+	status = -1;
+	cerr << "Invalid value for A: " << argv[i] << endl;
 	goto End_of_Routine;
       }
       i++;
@@ -269,12 +281,13 @@ int GetArguments (int argc, char **argv)
     }
     else if (strcmp (argv[i], "-help") == 0)
     {
-      cout << argv[0] << " -N <N> -K <K> [-epi <epi>] [-walk <walk>] [-len <len>] [-nr <nr>]"
+      cout << argv[0] << " -N <N> -K <K> [-a <A>] [-epi <epi>] [-walk <walk>] [-len <len>] [-nr <nr>]"
 	   << " [-print <print>] [-s <seed>] [-help]" << endl
 	   << endl
 	   << "  N:     The genome length." << endl
 	   << "  K:     The number of epistatic interactions (0<=K<N)."
 	   << endl
+	   << "  A:     The alphabet size (default=2)." << endl
 	   << "  epi:   The type of epistatic interactions ('adj' (default)"
 	   << " or 'rnd')." << endl
 	   << "  walk:  The type of walk to perform ('random' (default), 'uphill', or 'downhill')"
@@ -318,7 +331,7 @@ int GetArguments (int argc, char **argv)
 
 /*
 ** performWalk: Perform a walk on the landscape and print out the fitness values
-**              of each point and all its one-bit mutants.
+**              of each point and its one-bit mutants (if desired).
 **
 ** Returns:
 **   If everything went fine:  0.

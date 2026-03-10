@@ -1,20 +1,17 @@
 /*
 ** Random.h: Class definition for the random functions of Terry Jones.
 **
-** Wim Hordijk   Last modified: 16 November 2004
+** Wim Hordijk   Last modified: 10 March 2026
 */
 
 #ifndef _RANDOM_H_
 #define _RANDOM_H_
 
-#define MAX_LONG 2147483647                              /* 2^31 - 1 */
+#define MAX_LONG 2147483647  /* 2^31 - 1 */
 
 
 /*
 ** Random: Class definition for a random number generator.
-**
-** Members:
-**
 */
 
 class Random

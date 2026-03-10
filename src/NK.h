@@ -1,7 +1,7 @@
 /*
 ** NK.h: Class definition for the NK-landscape model.
 **
-** Wim Hordijk   Last modified: 16 November 2004
+** Wim Hordijk   Last modified: 10 March 2026
 */
 
 #ifndef _NK_LANDSCAPE_
@@ -11,7 +11,7 @@
 
 
 /*
-** NK_Landscape: The class implementing the NK-landscape model.
+** NK_Landscape: The class definition for the NK-landscape model.
 **
 ** Member variables:
 **   - N:       The length of the genomes.

@@ -1,9 +1,10 @@
 /*
-** Random.cpp: Implementation of a class for generating uniformly
-**             distributed random numbers.
-**             Uses Terry Jones' code for generating UNIF[0,1) numbers.
+** Random.cpp: Implementation of the class for generating uniformly distributed
+**             random numbers.
 **
-** Wim Hordijk   Last modified: 16 November 2004
+** Note: This uses Terry Jones' original code for generating UNIF[0,1) numbers.
+**
+** Wim Hordijk   Last modified: 10 March 2026
 */
 
 #include "Random.h"
@@ -27,9 +28,8 @@
 
 long Random::SetSeed (long seed)
 {
-  register int i;
-  register int k;
-  long         mj, mk;
+  int  i, k;
+  long mj, mk;
 
   /*
   ** Check the seed value.
@@ -46,7 +46,7 @@ long Random::SetSeed (long seed)
   mk = 1;
   for (i = 1; i <= 54; i++)
   {
-    register int ii = (21 * i) % 55;
+    int ii = (21 * i) % 55;
     ma[ii] = mk;
     mk = mj - mk;
     if (mk < 0)
@@ -154,7 +154,7 @@ double Random::Unif ()
 
 
 /*
-** Unif: Generate a random number between 0 and n-1 (inclusive) with
+** Unif: Generate a random integer between 0 and n-1 (inclusive) with
 **       uniform probability.
 **
 ** Parameters:

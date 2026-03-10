@@ -1,24 +1,26 @@
 /*
-** NKC.cpp: Implementation of the NKC-landscape model of Stuart Kauffman.
-**          For now, the implementation assumes there is only one other
-**          species that influences the fitness of the current species,
-**          and that the genome length (N) and the alphabet size (A) is
-**          the same for both species.
+** NKC.cpp: Implementation of the NKC-landscape model.
 **
-**          This implementation uses an idea and some code from Terry Jones
-**          to calculate the fitness values. Instead of storing a table
-**          with N*(2^K) fitness contributions, a unique (long) integer is
-**          deterministically calculated for each gene and every possible
-**          neighborhood configuration. This unique integer is then used
-**          as the seed for drawing a random number which is the fitness
-**          contribution of that gene given that neighborhood configuration.
+** Note: For now, the implementation assumes there is only one other
+**       species that influences the fitness of the current species,
+**       and that the genome length (N) and the alphabet size (A) is
+**       the same for both species.
 **
-** Wim Hordijk   Last modified: 23 August 2010
+**       This implementation uses an idea and some code from Terry Jones
+**       to calculate the fitness values. Instead of storing a table
+**       with N*(2^K) fitness contributions, a unique (long) integer is
+**       deterministically calculated for each gene and every possible
+**       neighborhood configuration. This unique integer is then used
+**       as the seed for drawing a random number which is the fitness
+**       contribution of that gene given that neighborhood configuration.
+**
+** Wim Hordijk   Last modified: 10 March 2026
 */
 
 #include "NKC.h"
 #include <stdlib.h>
 #include <iostream>
+
 using namespace std;
 
 

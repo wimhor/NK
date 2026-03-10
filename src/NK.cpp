@@ -1,20 +1,21 @@
 /*
-** NK.cpp: Implementation of the NK-landscape model of Stuart Kauffman.
+** NK.cpp: Implementation of the NK-landscape model.
 **
-**         This implementation uses an idea and some code from Terry Jones
-**         to calculate the fitness values. Instead of storing a table
-**         with N*(2^K) fitness contributions, a unique (long) integer is
-**         deterministically calculated for each gene and every possible
-**         neighborhood configuration. This unique integer is then used
-**         as the seed for drawing a random number which is the fitness
-**         contribution of that gene given that neighborhood configuration.
+** Note: This implementation uses an idea and some code from Terry Jones
+**       to calculate the fitness values. Instead of storing a table
+**       with N*(2^K) fitness contributions, a unique (long) integer is
+**       deterministically calculated for each gene and every possible
+**       neighborhood configuration. This unique integer is then used
+**       as the seed for drawing a random number which is the fitness
+**       contribution of that gene given that neighborhood configuration.
 **
-** Wim Hordijk   Last modified: 23 August 2010
+** Wim Hordijk   Last modified: 10 March 2026
 */
 
 #include "NK.h"
 #include <stdlib.h>
 #include <iostream>
+
 using namespace std;
 
 
@@ -223,7 +224,7 @@ void NK_Landscape::Test ()
 
 
 /*
-** Fitness: Calculate the fitness of a genome.
+** Fitness: Calculate the fitness of a genome (after Terry Jones).
 **
 ** Parameters:
 **   - genome: The genome for which to calculate the fitness.

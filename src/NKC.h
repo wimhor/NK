@@ -1,7 +1,7 @@
 /*
 ** NKC.h: Class definition for the NKC-landscape model.
 **
-** Wim Hordijk   Last modified: 17 November 2004
+** Wim Hordijk   Last modified: 10 March 2026
 */
 
 #ifndef _NKC_LANDSCAPE_
@@ -11,7 +11,7 @@
 
 
 /*
-** NKC_Landscape: The class implementing the NKC-landscape model.
+** NKC_Landscape: The class definition for the NKC-landscape model.
 **
 ** Member variables:
 **   - N:        The length of the genomes.
@@ -42,7 +42,7 @@ public:
   static const int ADJ=1, RND=2;
   bool             init_OK;
 
-  NKC_Landscape (int n, int k, int c, int nbh = ADJ, int a = 2, long s = -1);
+   NKC_Landscape (int n, int k, int c, int nbh = ADJ, int a = 2, long s = -1);
   ~NKC_Landscape ();
 
   void   Test    ();
