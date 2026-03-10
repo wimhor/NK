@@ -157,7 +157,7 @@ int GetArguments (int argc, char **argv)
   i = 1;
   while (i < argc)
   {
-    if (strcmp (argv[i], "-N") == 0)
+    if (strcmp (argv[i], "-n") == 0)
     {
       if ((sscanf (argv[++i], "%d", &N) != 1) || (N < 2))
       {
@@ -167,7 +167,7 @@ int GetArguments (int argc, char **argv)
       }
       i++;
     }
-    else if (strcmp (argv[i], "-K") == 0)
+    else if (strcmp (argv[i], "-k") == 0)
     {
       if ((sscanf (argv[++i], "%d", &K) != 1) || (K < 0) || (K >= N))
       {
@@ -281,7 +281,7 @@ int GetArguments (int argc, char **argv)
     }
     else if (strcmp (argv[i], "-help") == 0)
     {
-      cout << argv[0] << " -N <N> -K <K> [-a <A>] [-epi <epi>] [-walk <walk>] [-len <len>] [-nr <nr>]"
+      cout << argv[0] << " -n <N> -k <K> [-a <A>] [-epi <epi>] [-walk <walk>] [-len <len>] [-nr <nr>]"
 	   << " [-print <print>] [-s <seed>] [-help]" << endl
 	   << endl
 	   << "  N:     The genome length." << endl

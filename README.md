@@ -9,16 +9,24 @@ This C++ code is largely based on earlier C code by [Terry Jones](https://github
 
 ## Compile
 To compile, go into the `src` directory and type
+
     make nk
+
 to compile the `nk_walk` program or
+
     make nkc
+
 to compile the `nkc_walk` program. The executables will be placed in the parent directory.
 
 ## Run
 To run, go back up to the parent directory and type
+
     ./nk_walk -help
+
 or
+
     ./nkc_walk -help
+    
 to see a list of expected and optional program arguments.
 
 ## Arguments
@@ -27,6 +35,7 @@ Both programs require at least a certain number of arguments, while others are o
 For the `nk_walk` program, the following values are required:
   - `N`:     The genome length.
   - `K`:     The number of epistatic interactions (`0<=K<N`).
+
 while these are optional (defaults indicated):
   - `A`:     The alphabet size (default=`2`).
   - `epi`:   The type of epistatic interactions (`adj` (default) or `rnd`).
@@ -40,9 +49,13 @@ For the `nkc_walk` program, the following values are required:
   - `N`:     The genome length.
   - `K`:     The number of epistatic interactions (`0<=K<N`).
   - `C`:     The number of between-species epistatic interactions (`0<=C<=N`).
+
 while these are optional (defaults indicated):
   - `A`:     The alphabet size (default=`2`).
   - `epi`:   The type of epistatic interactions (`adj` (default) or `rnd`).
   - `seed`:  The seed value for the landscape (default=`-1`).
   - `T`:     The number of steps in the random walk (default=`10000`).
   - `s_mut`: The number of steps after which the other species is mutated (default=`0`).
+
+## Known issues
+The program `nkc_walk` currently seems to produce incorrect fitness values for `A>2`. If I find the time I'll look into this, but for now it's best to stick to `A=2` (i.e., bit strings).
