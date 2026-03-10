@@ -240,7 +240,7 @@ int GetArguments (int argc, char **argv)
       cout << "Usage: " << argv[0]
 	   << " -n N -k K -c C [-a A] [-epi {rnd|adj}] [-s S] [-len L] [-m M] [-help]"
 	   << endl << endl
-	   << "  -n N:     The genome length N." << endl
+	   << "  -n N:     The genome length N (N>0)." << endl
 	   << "  -k K:     The number K of epistatic interactions for each gene (0<=K<N)."
 	   << endl
 	   << "  -c C:     The number C of between-species epistatic interactions "
@@ -250,7 +250,7 @@ int GetArguments (int argc, char **argv)
 	   << endl
 	   << "  -s S:     The random seed S (default=-1: use current time)." << endl
 	   << "  -len L:   The length L of the random walk (default=100)." << endl
-	   << "  -m M:     The number of steps after which the other species is"
+	   << "  -m M:     The number of steps M after which the other species is"
 	   << "            mutated (default=0)." << endl
 	   << "  -help:    Print this help message and exit." << endl;
       status = -1;

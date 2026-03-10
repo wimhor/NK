@@ -33,7 +33,7 @@ to see the list of required and optional program arguments.
 Both programs require at least a certain number of arguments, while others are optional.
 
 For the `nk_walk` program, the following arguments are required:
-  - `-n N`:     The genome length N.
+  - `-n N`:     The genome length N (`N>0`).
   - `-k K`:     The number K of epistatic interactions for each gene (`0<=K<N`).
 
 while these are optional (defaults indicated):
@@ -42,22 +42,22 @@ while these are optional (defaults indicated):
   - `-walk W`:  The type W of walk to perform: `random` (default), `uphill`, or `downhill`.
   - `-len L`:   The length L of a random walk (default=`100`).
   - `-nr Nr`:   The number Nr of walks to perform (default=`100`).
-  - `-print P`: Which mutant fitness values P to pring: `none` (default), `fitter`, or `all`.
+  - `-print P`: Which mutant fitness values P to print: `none` (default), `fitter`, or `all`.
   - `-s S`:     The random seed S (default=`-1`: use current time).
   - `-help`:    Print this help message and exit.
 
 For the `nkc_walk` program, the following arguments are required:
-  - `-n N`:     The genome length N.
+  - `-n N`:     The genome length N (`N>0`).
   - `-k K`:     The number K of epistatic interactions for each gene (`0<=K<N`).
-  - `-c C`:     The number C of between-species interactions (`0<=C<N`).
+  - `-c C`:     The number C of between-species epistatic interactions (`0<=C<N`).
 
 while these are optional (defaults indicated):
   - `-a A`:     The alphabet size A (default=`2`).
   - `-epi E`:   The type E of epistatic interactions: `adj` (default) or `rnd`.
   - `-s S`:     The random seed S (default=`-1`: use current time).
-  - `-len L`:   The length L of a random walk (default=`100`).
+  - `-len L`:   The length L of the random walk (default=`100`).
   - `-m M`:     The number of steps M after which the other species is mutated (default=`0`).
   - `-help`:    Print this help message and exit.
 
 ## Known issues
-The program `nkc_walk` currently seems to produce incorrect fitness values for `A>2`. If I find the time I'll look into this, but for now it's best to stick to `A=2` (i.e., bit strings).
+The program `nkc_walk` currently seems to produce incorrect fitness values for `A>2`. For now it's best to stick with the default `A=2` (i.e., bit strings), until this is fixed.

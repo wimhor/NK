@@ -284,7 +284,7 @@ int GetArguments (int argc, char **argv)
       cout << "Usage: " << argv[0]
 	   << " -n N -k K [-a A] [-epi {adj|rnd}] [-walk {random|uphill|downhill}]"
 	   << "[-len L] [-nr Nr] [-print {none|fitter|all}] [-s S] [-help]" << endl << endl
-	   << "  -n N:     The genome length N." << endl
+	   << "  -n N:     The genome length N (N>0)." << endl
 	   << "  -k K:     The number K of epistatic interactions for each gene (0<=K<N)."
 	   << endl
 	   << "  -a A:     The alphabet size A (default=2)." << endl
