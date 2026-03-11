@@ -60,4 +60,5 @@ while these are optional (defaults indicated):
   - `-help`:    Print this help message and exit.
 
 ## Known issues
-The program `nkc_walk` currently seems to produce incorrect fitness values for `A>2`. For now it's best to stick with the default `A=2` (i.e., bit strings), until this is fixed.
+  - The program `nkc_walk` currently seems to produce incorrect fitness values for `A>2`. For now it's best to stick with the default `A=2` (i.e., bit strings).
+  - The two programs were developed separately for different projects, but should probably be merged at some point, with the value for the `C` parameter being an optional argument (with default `C=0`).
